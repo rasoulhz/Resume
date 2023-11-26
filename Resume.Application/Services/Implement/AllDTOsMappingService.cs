@@ -11,15 +11,19 @@ namespace Resume.Application.Services.Implement
     public class AllDTOsMappingService : IAllDTOsMappingService
     {
         private readonly IPersonalInformationService _personalService;
-        public AllDTOsMappingService(IPersonalInformationService personalInformationService)
+        private readonly IAboutMeService _aboutMeService;
+
+        public AllDTOsMappingService(IPersonalInformationService personalInformationService, IAboutMeService aboutMeService)
         {
             _personalService = personalInformationService;
+            _aboutMeService = aboutMeService;
         }
         public async Task<AllDTOs> GetAllDTOsAsync()
         {
             AllDTOs allDTO=new();
 
             allDTO.PersonalInformationDTO = await _personalService.GetPersonalInformation();
+            allDTO.aboutMeDTO = await _aboutMeService.GetAboutMeListAsync();
 
             return allDTO ;
         }

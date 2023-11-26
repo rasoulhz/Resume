@@ -1,5 +1,4 @@
-﻿using Resume.Application.DTOMapping.Interface;
-using Resume.Application.DTOs;
+﻿using Resume.Application.DTOs;
 using Resume.Application.Services.Interface;
 using Resume.Domain.Entities;
 using Resume.Domain.RepositoryInterface;
@@ -13,18 +12,16 @@ namespace Resume.Application.Services.Implement
 {
     public class PersonalInformationService : IPersonalInformationService
     {
-        private readonly IPersonalInformationRepository _service;
-        private readonly IPersonalInformationDTOMapping _mapper;
-        public PersonalInformationService(IPersonalInformationRepository personalInformationRepository
-            , IPersonalInformationDTOMapping personalInformationDTOMapping)
+        private readonly IPersonalInformationRepository _repository;
+        public PersonalInformationService(IPersonalInformationRepository personalInformationRepository)
         {
-            _service = personalInformationRepository;
-            _mapper = personalInformationDTOMapping;
+            _repository = personalInformationRepository;
         }
         public async Task<PersonalInformationDTO> GetPersonalInformation()
         {
 
-            return _mapper.GetPersonalInformationDTO(await _service.GetPersonalInformation());
+            return DTOMapping.DTOMapping.ToPersonalInformationDTO(await _repository.GetPersonalInformation());
+            
         }
     }
 }

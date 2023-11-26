@@ -11,5 +11,6 @@ namespace Resume.Application.DTOs
     public class AllDTOs
     {
         public PersonalInformationDTO PersonalInformationDTO { get; set; }
+        public List<AboutMeDTO> aboutMeDTO { get; set; }
     }
 }

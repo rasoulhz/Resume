@@ -1,5 +1,4 @@
-﻿using Resume.Application.DTOMapping.Interface;
-using Resume.Application.DTOs;
+﻿using Resume.Application.DTOs;
 using Resume.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -7,13 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Resume.Application.DTOMapping.Implement
+namespace Resume.Application.DTOMapping
 {
-    public class PersonalInformationDTOMapping : IPersonalInformationDTOMapping
+    public static class DTOMapping
     {
-        public PersonalInformationDTO GetPersonalInformationDTO(PersonalInformation personalInformation)
+        public static PersonalInformationDTO ToPersonalInformationDTO(PersonalInformation personalInformation)
         {
-            PersonalInformationDTO personalInformationDTO= new()
+            PersonalInformationDTO personalInformationDTO = new()
             {
                 Name = personalInformation.Name,
                 Address = personalInformation.Address,
@@ -26,6 +25,16 @@ namespace Resume.Application.DTOMapping.Implement
                 Email = personalInformation.Email,
             };
             return personalInformationDTO;
+        }
+        public static AboutMeDTO ToAboutMeDTO(AboutMe aboutMe)
+        {
+            AboutMeDTO aboutMeDTO = new()
+            {
+                Title = aboutMe.Title,
+                Description = aboutMe.Description,
+                banner = aboutMe.banner
+            };
+            return aboutMeDTO;
         }
     }
 }

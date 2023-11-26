@@ -1,8 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using Resume.Application.DTOMapping.Implement;
-using Resume.Application.DTOMapping.Interface;
 using Resume.Application.Services.Implement;
 using Resume.Application.Services.Interface;
+using Resume.Domain.Entities;
 using Resume.Domain.RepositoryInterface;
 using Resume.Infrastructure.appDbContext;
 using Resume.Infrastructure.Repository;
@@ -21,11 +20,12 @@ namespace Resume.Presentation
             op.UseSqlServer(builder.Configuration.GetConnectionString("AppDbContext")));
 
             builder.Services.AddScoped<IPersonalInformationService, PersonalInformationService>();
-            builder.Services.AddScoped<IPersonalInformationDTOMapping, PersonalInformationDTOMapping>();
+            builder.Services.AddScoped<IAboutMeService, AboutMeService>();
 
             builder.Services.AddScoped<IAllDTOsMappingService, AllDTOsMappingService>();
 
             builder.Services.AddScoped<IPersonalInformationRepository, PersonalInformationRepository>();
+            builder.Services.AddScoped<IAboutMeRepository, AboutMeRepository>();
 
             var app = builder.Build();
 
