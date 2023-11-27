@@ -36,5 +36,29 @@ namespace Resume.Application.DTOMapping
             };
             return aboutMeDTO;
         }
+        public static EducationDTO ToEducationDTO(Education education)
+        {
+            EducationDTO educationDTO = new()
+            {
+                Degree = education.Degree,
+                Academy = education.Academy,
+                Description = education.Description,
+                EntryDate = education.EntryDate,
+                Title = education.Title
+            };
+            return educationDTO;
+        }
+        public static ExperienceDTO ToExperirienceDTO(Experience experience)
+        {
+            ExperienceDTO experienceDTO = new()
+            {
+                Description = experience.Description,
+                Name = experience.Name,
+                JobTitle = experience.JobTitle,
+                EntryDate = experience.EntryDate,
+                Title = experience.Title
+            };
+            return experienceDTO;
+        }
     }
 }

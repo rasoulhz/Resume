@@ -21,13 +21,17 @@ namespace Resume.Presentation
 
             builder.Services.AddScoped<IPersonalInformationService, PersonalInformationService>();
             builder.Services.AddScoped<IAboutMeService, AboutMeService>();
+			builder.Services.AddScoped<IEducationService, EducationService>();
+			builder.Services.AddScoped<IExperienceService, ExperienceService>();
 
-            builder.Services.AddScoped<IAllDTOsMappingService, AllDTOsMappingService>();
+			builder.Services.AddScoped<IAllDTOsMappingService, AllDTOsMappingService>();
 
             builder.Services.AddScoped<IPersonalInformationRepository, PersonalInformationRepository>();
             builder.Services.AddScoped<IAboutMeRepository, AboutMeRepository>();
+			builder.Services.AddScoped<IEducationRepository, EducationRepository>();
+			builder.Services.AddScoped<IExperienceRepository, ExperienceRepository>();
 
-            var app = builder.Build();
+			var app = builder.Build();
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
