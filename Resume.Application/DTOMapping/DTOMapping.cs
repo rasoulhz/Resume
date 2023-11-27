@@ -60,5 +60,35 @@ namespace Resume.Application.DTOMapping
             };
             return experienceDTO;
         }
+        public static SkillDTO ToSkillDTO(Skill skill)
+        {
+            SkillDTO skillDTO = new()
+            {
+                Title = skill.Title,
+                Description = skill.Description
+            };
+            return skillDTO;
+        }
+        public static ProjectDTO ToProjectDTO(Project project)
+        {
+            ProjectDTO projectDTO = new()
+            {
+                Title = project.Title,
+                Description = project.Description,
+                URL = project.URL
+            };
+            return projectDTO;
+        }
+        public static ContactMe ToContactMe(ContactMeDTO contactMeDTO)
+        {
+            ContactMe contactMe = new()
+            {
+                Email = contactMeDTO.Email,
+                Message = contactMeDTO.Message,
+                Name = contactMeDTO.Name,
+                Phone = contactMeDTO.Phone
+            };
+            return contactMe;
+        }
     }
 }

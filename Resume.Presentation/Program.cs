@@ -23,6 +23,9 @@ namespace Resume.Presentation
             builder.Services.AddScoped<IAboutMeService, AboutMeService>();
 			builder.Services.AddScoped<IEducationService, EducationService>();
 			builder.Services.AddScoped<IExperienceService, ExperienceService>();
+			builder.Services.AddScoped<ISkillService, SkillService>();
+			builder.Services.AddScoped<IProjectService, ProjectService>();
+			builder.Services.AddScoped<IContactMeService, ContactMeService>();
 
 			builder.Services.AddScoped<IAllDTOsMappingService, AllDTOsMappingService>();
 
@@ -30,6 +33,9 @@ namespace Resume.Presentation
             builder.Services.AddScoped<IAboutMeRepository, AboutMeRepository>();
 			builder.Services.AddScoped<IEducationRepository, EducationRepository>();
 			builder.Services.AddScoped<IExperienceRepository, ExperienceRepository>();
+			builder.Services.AddScoped<ISkillRepository, SkillRepository>();
+			builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
+			builder.Services.AddScoped<IContactMeRepository, ContactMeRepository>();
 
 			var app = builder.Build();
 
@@ -47,6 +53,10 @@ namespace Resume.Presentation
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.MapControllerRoute(
+                name: "Admin",
+                pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 
             app.MapControllerRoute(
                 name: "default",

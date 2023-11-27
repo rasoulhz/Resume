@@ -14,5 +14,8 @@ namespace Resume.Application.DTOs
         public List<AboutMeDTO> aboutMeDTO { get; set; }
         public List<ExperienceDTO> experiencesDTO { get; set; }
         public List<EducationDTO> educationDTO { get; set; }
+        public List<ProjectDTO> projectDTO { get; set; }
+        public List<SkillDTO> skillDTO { get; set; }
+        public List<ContactMeDTO> contactMeDTO { get; set; }
     }
 }

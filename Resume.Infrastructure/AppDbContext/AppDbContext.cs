@@ -19,5 +19,8 @@ namespace Resume.Infrastructure.appDbContext
         public DbSet<AboutMe> aboutMes { get; set; }
 		public DbSet<Experience> experiences { get; set; }
         public DbSet<Education> educations { get; set; }
+        public DbSet<Skill> skills { get; set; }
+        public DbSet<Project> projects { get; set; }
+        public DbSet<ContactMe> contactMes { get; set; }
 	}
 }
